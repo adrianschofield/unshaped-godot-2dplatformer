@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjh2sw7vviwdh"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_fly.gd" id="1_l2u02"]
+[ext_resource type="Texture2D" uid="uid://cyn0diy4ce101" path="res://Assets/Enemies/flyFly1.png" id="2_o57t4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vq37"]
+radius = 17.0
+height = 76.0
+
+[node name="EnemyFly" type="Area2D"]
+script = ExtResource("1_l2u02")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_o57t4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4vq37")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
