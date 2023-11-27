@@ -1,12 +1,12 @@
 extends Area2D
 
-
 var bob_height : float = 5.0
 var bob_speed : float = 5.0
 
+const gem_points : int = 10
+
 @onready var start_y : float = global_position.y
 var t : float = 0.0
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -17,7 +17,9 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		body.add_score(1)
+		# The first thing we do here is to tell our global script
+		# to update the score
+		Global.do_update_score(gem_points)
 		# Because the audio plays async we can't destroy the gem
 		# straight away so let's hide the sprite
 		get_node("Sprite").visible = false

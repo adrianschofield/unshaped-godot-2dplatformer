@@ -448,7 +448,6 @@ position = Vector2(170, 87)
 
 [node name="FinishFlag" parent="." instance=ExtResource("3_jnwml")]
 position = Vector2(666, 105)
-next_scene = "res://Scenes/level_2.tscn"
 
 [node name="EnemyFly" parent="." instance=ExtResource("4_ump3y")]
 position = Vector2(415, 192)

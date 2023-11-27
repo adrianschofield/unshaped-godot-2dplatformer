@@ -4,10 +4,14 @@ var move_speed : float = 200.0
 var jump_force : float = 500.0
 var gravity : float = 1000.0
 
-var score : int = 0
-var lives : int = 3
-
+# define when the player is out of bounds
 const out_of_bounds_y : float = 250.0
+
+func _ready():
+	# store our start position
+	Global.player_start_position = global_position
+	# Connect up our signals
+	Global.respawn.connect(player_respawn)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -26,14 +30,10 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if global_position.y > out_of_bounds_y:
-		game_over()
+		out_of_bounds()
 
-func game_over():
-	get_tree().reload_current_scene()
+func out_of_bounds():
+	Global.do_life_lost()
 	
-func add_score(amount):
-	get_node("Camera2D/UI").update_score(10)
-	score += amount
-	print (score)
-	# score_text.text = str("Score: ", score)
-	
+func player_respawn():
+	global_position = Global.player_start_position
