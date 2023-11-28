@@ -13,15 +13,19 @@ var player_start_position : Vector2
 
 # levels
 var current_scene = null
+var level0_scene = preload("res://Scenes/level_0.tscn")
 var level1_scene = preload("res://Scenes/level_1.tscn")
 var level2_scene = preload("res://Scenes/level_2.tscn")
 const max_level : int = 2
-var current_level : int = 1
+# set this to zero so our default scene is always level 0
+var current_level : int = 0
+# Set to true when we hit any game over condition
+var game_over_state : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# All this does is set up the current scene in our case that
-	# will be level 1
+	# will be level 0
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 
@@ -49,7 +53,11 @@ func _deferred_goto_scene():
 	# Remove the current scene
 	current_scene.free()
 		
-	if current_level == 1:
+	if current_level == 0:
+		current_scene = level0_scene.instantiate()
+		get_tree().root.add_child(current_scene)
+		get_tree().current_scene = current_scene
+	elif current_level == 1:
 		current_scene = level1_scene.instantiate()
 		get_tree().root.add_child(current_scene)
 		get_tree().current_scene = current_scene
@@ -83,8 +91,24 @@ func do_life_lost():
 		do_game_over()
 	
 func do_game_over():
-	current_level = 1
-	Global.game_over.emit()
+	game_over_state = true
+	# set current level to 0 as we must be at a game over state
+	current_level = 0
+	# reset player state
+	score = 0
+	lives = 3
+	# Then because the current scene may still be doing something
+	# defer the call until that is all finished
+	call_deferred("_deferred_goto_scene")
+	# current_level = 1
+	
+	# Global.game_over.emit()
+	# instead of telling nodes that the game is over
+	# just instantiate the scene for level 0 and let the scene
+	# handle things
+	
+	current_level = 0
+	
 	
 func do_respawn():
 	Global.respawn.emit()
