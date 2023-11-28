@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpllw574ldcg7"]
+[gd_scene load_steps=4 format=3 uid="uid://dpllw574ldcg7"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_1esh0"]
 
@@ -7,11 +7,6 @@ font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_dr6ja"]
 font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_lddkd"]
-font_size = 48
-outline_size = 7
-outline_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -39,12 +34,3 @@ offset_right = 280.0
 offset_bottom = 647.0
 text = "Lives: 0"
 label_settings = SubResource("LabelSettings_dr6ja")
-
-[node name="GameOver" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 424.0
-offset_top = 271.0
-offset_right = 699.0
-offset_bottom = 341.0
-text = "Game Over!"
-label_settings = SubResource("LabelSettings_lddkd")
