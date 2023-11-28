@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsu8h70th5g70"]
+
+[ext_resource type="Script" path="res://Scripts/level_0.gd" id="1_n802a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2jrh7"]
+font_size = 48
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="level_0" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n802a")
+
+[node name="GameOver" type="Label" parent="."]
+offset_left = 424.0
+offset_top = 271.0
+offset_right = 699.0
+offset_bottom = 341.0
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_2jrh7")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 364.0
+offset_right = 612.0
+offset_bottom = 395.0
+text = "Play Again?"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
