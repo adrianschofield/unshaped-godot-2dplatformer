@@ -18,4 +18,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
+	# When the button is pressed all we need to do is switch to the next level
 	Global.next_level()
