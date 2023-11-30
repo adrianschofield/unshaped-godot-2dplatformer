@@ -13,17 +13,32 @@ var player_start_position : Vector2
 
 # levels
 var current_scene = null
-var level0_scene = preload("res://Scenes/level_0.tscn")
-var level1_scene = preload("res://Scenes/level_1.tscn")
-var level2_scene = preload("res://Scenes/level_2.tscn")
-const max_level : int = 2
+var levels = [	"res://Scenes/level_0.tscn",
+				"res://Scenes/level_1.tscn",
+				"res://Scenes/level_2.tscn"]
+#				,"res://Scenes/level_3.tscn"]
+# We need an array to load the scenes into
+var level_scenes = []
+
+#var level0_scene = preload("res://Scenes/level_0.tscn")
+#var level1_scene = preload("res://Scenes/level_1.tscn")
+#var level2_scene = preload("res://Scenes/level_2.tscn")
+#var level3_scene = preload("res://Scenes/level_3.tscn")
+# const max_level : int = 3
+# define the maximum level based on our array size
+var max_level : int = levels.size() - 1
 # set this to zero so our default scene is always level 0
 var current_level : int = 0
+
 # Set to true when we hit any game over condition
 var game_over_state : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# let's load the scenes
+	for i in range (levels.size()):
+		level_scenes.append(load(levels[i]))
+		
 	# All this does is set up the current scene in our case that
 	# will be level 0
 	var root = get_tree().root
@@ -52,19 +67,28 @@ func _deferred_goto_scene():
 	
 	# Remove the current scene
 	current_scene.free()
+	
+	# Instantiate the scene from the array
+	current_scene = level_scenes[current_level].instantiate()
+	get_tree().root.add_child(current_scene)
+	get_tree().current_scene = current_scene
 		
-	if current_level == 0:
-		current_scene = level0_scene.instantiate()
-		get_tree().root.add_child(current_scene)
-		get_tree().current_scene = current_scene
-	elif current_level == 1:
-		current_scene = level1_scene.instantiate()
-		get_tree().root.add_child(current_scene)
-		get_tree().current_scene = current_scene
-	else:
-		current_scene = level2_scene.instantiate()
-		get_tree().root.add_child(current_scene)
-		get_tree().current_scene = current_scene
+#	if current_level == 0:
+#		current_scene = level0_scene.instantiate()
+#		get_tree().root.add_child(current_scene)
+#		get_tree().current_scene = current_scene
+#	elif current_level == 1:
+#		current_scene = level1_scene.instantiate()
+#		get_tree().root.add_child(current_scene)
+#		get_tree().current_scene = current_scene
+#	elif current_level == 2:
+#		current_scene = level2_scene.instantiate()
+#		get_tree().root.add_child(current_scene)
+#		get_tree().current_scene = current_scene
+#	else:
+#		current_scene = level3_scene.instantiate()
+#		get_tree().root.add_child(current_scene)
+#		get_tree().current_scene = current_scene
 		
 # Called by the gem scene when it's hit so that score is updated
 func do_update_score(amount):
