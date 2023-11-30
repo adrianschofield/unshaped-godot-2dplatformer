@@ -17,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_n802a")
 
 [node name="GameOver" type="Label" parent="."]
+layout_mode = 0
 offset_left = 424.0
 offset_top = 271.0
 offset_right = 699.0
