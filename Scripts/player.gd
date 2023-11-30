@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var move_speed : float = 200.0
-var jump_force : float = 500.0
+var jump_force : float = 550.0
 var gravity : float = 1000.0
 
 # define when the player is out of bounds
