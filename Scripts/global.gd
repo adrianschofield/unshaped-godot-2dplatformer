@@ -13,10 +13,10 @@ var player_start_position : Vector2
 
 # levels
 var current_scene = null
-var levels = [	"res://Scenes/level_0.tscn",
-				"res://Scenes/level_1.tscn",
-				"res://Scenes/level_2.tscn"]
-#				,"res://Scenes/level_3.tscn"]
+var levels = [	"res://Scenes/level_0.tscn"
+				,"res://Scenes/level_1.tscn"
+				,"res://Scenes/level_2.tscn"
+				,"res://Scenes/level_3.tscn"]
 # We need an array to load the scenes into
 var level_scenes = []
 
