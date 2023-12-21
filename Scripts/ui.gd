@@ -12,14 +12,16 @@ func _ready():
 	# Global.game_over.connect(ui_game_over)
 
 func ui_set_default_values():
-	get_node("CanvasLayer/Lives").text = str("Lives: ", Global.lives)
-	get_node("CanvasLayer/Score").text = str("Score: ", Global.score)
+	# get_node("CanvasLayer/Lives").text = str("Lives: ", Global.lives)
+	# get_node("CanvasLayer/Score").text = str("Score: ", Global.score)
+	get_node("PanelContainer/MarginContainer/GridContainer/Lives").text = str("Lives: ", Global.lives)
+	get_node("PanelContainer/MarginContainer/GridContainer/Score").text = str("Score: ", Global.score)
 	
 func ui_update_score():
-	get_node("CanvasLayer/Score").text = str("Score: ", Global.score)
+	get_node("PanelContainer/MarginContainer/GridContainer/Score").text = str("Score: ", Global.score)
 	
 func ui_update_lives():
-	get_node("CanvasLayer/Lives").text = str("Lives: ", Global.lives)
+	get_node("PanelContainer/MarginContainer/GridContainer/Lives").text = str("Lives: ", Global.lives)
 	
 #func ui_game_over():
 #	get_node("CanvasLayer/GameOver").visible = true
