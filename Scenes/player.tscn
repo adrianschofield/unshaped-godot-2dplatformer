@@ -21,3 +21,7 @@ shape = SubResource("CapsuleShape2D_hoq42")
 zoom = Vector2(0.8, 0.8)
 
 [node name="UI" parent="Camera2D" instance=ExtResource("3_vrrdx")]
+offset_left = -722.0
+offset_top = -285.0
+offset_right = -722.0
+offset_bottom = -285.0
