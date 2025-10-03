@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bk1ogy8xn8pj0"]
 
-[ext_resource type="Script" path="res://Scripts/gem.gd" id="1_bmaus"]
+[ext_resource type="Script" uid="uid://bm57h3ot05occ" path="res://Scripts/gem.gd" id="1_bmaus"]
 [ext_resource type="Texture2D" uid="uid://dpbw61uiubtba" path="res://Assets/Items/gemRed.png" id="2_5bbgw"]
 [ext_resource type="AudioStream" uid="uid://boas3fnvkgf5n" path="res://Assets/Sounds/pickup5.ogg" id="3_mk3fk"]
 

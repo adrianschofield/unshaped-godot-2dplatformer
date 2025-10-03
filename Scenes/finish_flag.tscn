@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfbijikxvwkom"]
 
-[ext_resource type="Script" path="res://Scripts/finish_flag.gd" id="1_h2v6c"]
+[ext_resource type="Script" uid="uid://bcrgy1knyx8ea" path="res://Scripts/finish_flag.gd" id="1_h2v6c"]
 [ext_resource type="Texture2D" uid="uid://bdvedy5jj1q6b" path="res://Assets/Items/flagBlue.png" id="2_wt8py"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rxc5"]

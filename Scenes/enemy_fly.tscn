@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjh2sw7vviwdh"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_fly.gd" id="1_l2u02"]
+[ext_resource type="Script" uid="uid://d3fsxdup2qxe3" path="res://Scripts/enemy_fly.gd" id="1_l2u02"]
 [ext_resource type="Texture2D" uid="uid://cyn0diy4ce101" path="res://Assets/Enemies/flyFly1.png" id="2_o57t4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vq37"]
